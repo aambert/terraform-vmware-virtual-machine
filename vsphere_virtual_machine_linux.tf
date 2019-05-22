@@ -36,7 +36,8 @@ resource "vsphere_virtual_machine" "linux" {
 
     customize {
       linux_options {
-        host_name = "${upper(format("%s-%d", var.virtual_machine_name_prefix, count.index))}"
+        host_name = "${lower(format("%s-%d", var.virtual_machine_name_prefix, count.index))}"
+        domain    = "${lower(var.linux_domain)}"
       }
 
       network_interface {

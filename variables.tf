@@ -130,3 +130,12 @@ variable "windows_run_once_command_list" {
   type        = "list"
   default     = []
 }
+
+# Linux Customization
+
+variable "linux_domain" {
+  description = "The domain name for this machine."
+  type        = "string"
+  default     = ""
+}
+

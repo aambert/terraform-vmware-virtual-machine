@@ -44,7 +44,7 @@ resource "vsphere_virtual_machine" "windows" {
       network_interface {
         ipv4_address    = "${var.virtual_machine_network_address != "" ? cidrhost(var.virtual_machine_network_address, var.virtual_machine_ip_address_start + count.index) : ""}"
         ipv4_netmask    = "${var.virtual_machine_network_address != "" ? element(split("/", var.virtual_machine_network_address), 1) : 0}"
-        dns_server_list = ["${var.virtual_machine_dns_servers}"]
+        dns_server_list = "${var.virtual_machine_dns_servers}"
       }
 
       ipv4_gateway = "${var.virtual_machine_gateway}"
