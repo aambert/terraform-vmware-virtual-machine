@@ -35,10 +35,12 @@ resource "vsphere_virtual_machine" "windows" {
     linked_clone  = "${var.virtual_machine_linked_clone}"
 
     customize {
+      network_interface = {}
       windows_options {
         computer_name         = "${upper(format("%s-%d", var.virtual_machine_name_prefix, count.index))}"
         admin_password        = "${var.windows_administrator_password}"
         run_once_command_list = "${var.windows_run_once_command_list}"
+        timeout               = "10"
       }
 
       network_interface {
