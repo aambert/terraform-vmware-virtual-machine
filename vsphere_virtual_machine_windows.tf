@@ -39,7 +39,7 @@ resource "vsphere_virtual_machine" "windows" {
       windows_options {
         computer_name               = "${upper(format("%s-%d", var.virtual_machine_name_prefix, count.index))}"
         admin_password              = "${var.windows_administrator_password}"
-        run_once_command_list       = "${var.windows_run_once_command_list}"
+        #run_once_command_list       = "${var.windows_run_once_command_list}"
         auto_logon       = true
         auto_logon_count = 1
 
